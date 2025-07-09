@@ -13,7 +13,7 @@ The references for this project are:
 [3]  A. Gezerlis, "Numerical Methods in Physics with Python", ch. 7, 2020, DOI: 10.1017/9781108772310
 
 
-## 1dHO: Project Structure
+## 1D Harmonic Oscillator: Project Structure
 
 ### Libraries
 
@@ -31,43 +31,18 @@ This Python code implements the following libraries:
 
 ### Files Initialization
 
-In the first part, we initialize the files to save the data and graphs, and we define the paths to store such files. 
+This section initializes the folders and file paths used to store output data and generated figures. Using the os library, it creates a main directory (HOResults) with two subdirectories: one for plots (Figures) and one for saved data (Data). 
 
-We locate the files in the folder "HOResults", and we create a directory for the figures ("Figures") and one for the data ("Data"). 
-
-
-PROJECT_ROOT_DIR = "HOResults" 
-FIGURE_ID = "HOResults/Figures"
-DATA_ID = "HOResults/Data"
-
-if not os.path.exists(PROJECT_ROOT_DIR):
-    os.mkdir(PROJECT_ROOT_DIR)
-if not os.path.exists(FIGURE_ID):
-    os.makedirs(FIGURE_ID)
-if not os.path.exists(DATA_ID):
-    os.makedirs(DATA_ID)
-
-def image_path(fig_id):
-    return os.path.join(FIGURE_ID, fig_id)
-def data_path(dat_id):
-    return os.path.join(DATA_ID, dat_id)
-
-def save_fig(fig_id):
-    plt.savefig(image_path(fig_id) + ".png", format='png')
-
-outfile = open(data_path("Data.dat"),'w')
 
 ### Variables Initialization
 
-We then initialize the variables and arrays that will be used throughout the code. We set the values for the total number of moves for the parameter variation and for the particles' random walk, also defining the steps used in the respective random walks. Then, we initialize the particles' positions array, the parameter values array, the ...
+In this section, we initialize the variables and arrays that will be used throughout the code. We also set the final goal for the parameter to be \alpha = 1. 
 
-We also set the final goal to be \alpha = 1
-
-NAcc = 0 # accepted moves
-NP = 900  # number of moves to find parameters
-NX = 10000  # number of particles' moves
-step = 1.0  # algorithm step for random walk of particles
-step1 = 0.3 # step for parameter random walk
+    NAcc = 0 # accepted moves
+    NP = 900  # number of moves to find parameters
+    NX = 10000  # number of particles' moves
+    step = 1.0  # algorithm step for random walk of particles
+    step1 = 0.3 # step for parameter random walk
 
 list_x = [] # storing positions
 list_alpha = [] # storing alpha values
