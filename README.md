@@ -136,3 +136,7 @@ The plot is saved as an image file named `VMCHarmonic.png` using the `save_fig` 
 A Pandas DataFrame is created from the lists of α values, energies, and variances, and printed as a tabular summary of the results
 
 
+
+### Results 
+
+
