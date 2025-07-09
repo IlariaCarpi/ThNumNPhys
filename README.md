@@ -56,25 +56,6 @@ In this section, we initialize the variables and arrays that will be used throug
 
 - Set seed for random numbers, to make the code reproducible: np.random.seed(12231) 
 
-#### IN REALTà SONO QUESTI PER 1DHO, GLI ALTRI SONO PER HE4 MI SONO CONFUSA
-NAcc = 0 # accepted moves
-NP = 900  # number of moves to find parameters
-NX = 10000  # number of particles' moves
-step = 1.0  # algorithm step for random walk of particles
-step1 = 0.3 # step for parameter random walk
-
-list_x = [] # storing positions
-list_alpha = [] # storing alpha values
-list_E = [] # storing energies
-list_EvalE = [] # NON HO CAPITO A COSA SERVE QUEST'ALTRA LISTA
-list_variance2 = []
-
-BestPar = 1 # final goal
-Par = 0.4 # starting point for parameter
-Par_new = 0 # initialize intermediate parameter for random walk
-
-np.random.seed(12231) 
-
 
 ### Important Functions
 
@@ -139,4 +120,43 @@ A Pandas DataFrame is created from the lists of α values, energies, and varianc
 
 ### Results 
 
+edrtfhui
 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+## Helium 4: Project Structure
+
+### Variables Initialization
+
+In this section, we initialize the variables and arrays that will be used throughout the code. We also set the final goal for the parameters as in reference [1]. 
+
+- Accepted particle moves: NA = 0
+- Number of moves to find parameter: NP
+- Number of particle moves: Nm
+- Number of nucleons: A
+- Step for particles random walk: step
+- Step for γ random walk: step1
+- Step for "a" random walk: step2
+- Step for β random walk: step3
+
+- Planck constant: hbar = 6.582119*10**(-22)
+- Kinetic term factor: C = (197.3269804)**2/2/939.56542052
+- Differential increment: h = 0.00001
+
+- List for particles' positions: list_R = []
+- List for accepted γ values: list_gamma = []
+- List for accepted "a" values: list_a = []
+- List for accepted β values: list_beta = []
+- List for accepted energies: list_E = []
+- Auxiliary list of energies to be used in parameter random walk: list_EvalE = [] 
+- List of squared variances of accepted energies: list_variance2 = []
+
+- Best values for parameters: BestPars = [0.08597, -0.7191, 2.13796] (Guardiola, ref. [1])
+- Starting point for parameters: Pars
+- Initialize intermediate parameters for random walk: Par_new = np.zeros(3)
+
+- Set seed for random numbers, to make the code reproducible: np.random.seed(12231) 
