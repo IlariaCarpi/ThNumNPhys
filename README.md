@@ -95,15 +95,15 @@ We define some functions that will be used throughout the code:
 
 ### Main Steps
 
-1. Initialize the system and generate initial configuration:
+1. **Initialize the system and generate initial configuration:**
    
    A random initial position `xOld` is generated and stored in `list_x`
 
-2. Run a Metropolis algorithm for position sampling: 
+2. **Run a Metropolis algorithm for position sampling:** 
 
    The Metropolis algorithm is used to build a Markov chain of accepted positions. Each proposed move `xNew` is accepted with probability based on the square of the ratio of the wavefunction values
 
-3. Perform Variational Monte Carlo (VMC) for α optimization:
+3. **Perform Variational Monte Carlo (VMC) for α optimization:**
 
    3.1 A random new value `Par_new` for the variational parameter α is proposed within bounds
 
@@ -116,20 +116,23 @@ We define some functions that will be used throughout the code:
 
 ### Show Results
 
-1. Print final results
+1. **Print final results**
 
 The code prints the last sampled values of the variational parameter α, the corresponding energy, and variance. It also prints the minimum energy found during the optimization along with the corresponding α and variance
 
-2. Plot energy and variance vs. α
+2. **Plot energy and variance vs. α**
 
 Two subplots are created:
 * The first shows the energy as a function of α
 * The second shows the variance squared as a function of α
 These plots help visualize the convergence and behavior of the variational optimization
 
-3. Save the figure
+3. **Save the figure**
 
 The plot is saved as an image file named `VMCHarmonic.png` using the `save_fig` function
 
+4. **Create and print a DataFrame summary**
+
+A Pandas DataFrame is created from the lists of α values, energies, and variances, and printed as a tabular summary of the results
 
 
