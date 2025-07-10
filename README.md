@@ -58,13 +58,15 @@ We define some functions that will be used throughout the code:
 
 - Returns a Gaussian wave function where α is a variational parameter that controls the width
   
-  `def WF(x,alpha):
-    return exp(-0.5*alpha*alpha*x*x)`
+  `def WF(x,alpha):`
+  
+    `return exp(-0.5*alpha*alpha*x*x)`
 
 -  Computes the local energy corresponding to the wavefunction
   
-  `def LocalEnergy(x,alpha):
-     return 0.5*x*x*(1-alpha**4) + 0.5*alpha*alpha`
+  `def LocalEnergy(x,alpha):`
+  
+     `return 0.5*x*x*(1-alpha**4) + 0.5*alpha*alpha`
 
 
 ### Main Steps
@@ -169,44 +171,65 @@ We define some functions that will be used throughout the code:
 
 - Returns the square distance between two particles i and j
   
-  `def d(R,i,j):
-    return np.sum((R[:, i] - R[:, j])**2)`
+  `def d(R,i,j):`
+
+    `return np.sum((R[:, i] - R[:, j])**2)`
 
 -  Computes the trial wave function as a product of Gaussian two-body terms 
   
-  `def WF(R, Par):
-    wf = 1
-    for i in range(0,A-1):
-      for j in range(i+1,A):
-        wf = wf * (exp(-Par[0]*d(R,i,j))+Par[1]*exp(-Par[2]*d(R,i,j)))
-    return wf`
+  `def WF(R, Par):`
+  
+    `wf = 1`
+    
+    `for i in range(0,A-1):`
+      
+      `for j in range(i+1,A):`
+      
+        `wf = wf * (exp(-Par[0]*d(R,i,j))+Par[1]*exp(-Par[2]*d(R,i,j)))`
+    
+    `return wf`
 
 -  Calculates the total potential energy between nucleon pairs
   
-  `def V(R):
-    V = 0
-    for i in range(0,A-1):
-      for j in range(i+1,A):
-        V = V + 1000*exp(-3*d(R,i,j))-165.35*exp(-1.05*d(R,i,j))-21.5*exp(-0.6*d(R,i,j))-83*exp(-0.8*d(R,i,j))-11.5*exp(-0.4*d(R,i,j))
-    return V`
+  `def V(R):`
+    
+    `V = 0`
+
+    `for i in range(0,A-1):`
+    
+      `for j in range(i+1,A):`
+      
+        `V = V + 1000*exp(-3*d(R,i,j))-165.35*exp(-1.05*d(R,i,j))-21.5*exp(-0.6*d(R,i,j))-83*exp(-0.8*d(R,i,j))-11.5*exp(-0.4*d(R,i,j))`
+    
+    `return V`
 
 -  Returns an approximate second derivative of the wavefunction for the kinetic energy
   
-  `def Diff (R, i, j, h, Par):
-    R_P = R.copy()
-    R_M = R.copy()
-    R_P[i,j] = R[i,j]+h
-    R_M[i,j] = R[i,j]-h
-    return (WF(R_P, Par)+WF(R_M, Par)-2*WF(R, Par))/h**2`
+  `def Diff (R, i, j, h, Par):`
+    
+    `R_P = R.copy()`
+    
+    `R_M = R.copy()`
+    
+    `R_P[i,j] = R[i,j]+h`
+    
+    `R_M[i,j] = R[i,j]-h`
+    
+    `return (WF(R_P, Par)+WF(R_M, Par)-2*WF(R, Par))/h**2``
 
 -  Computes the kinetic energy by summing second derivatives over all coordinates
   
-  `def K(R, Par):
-    K = 0 
-    for j in range(0,A):
-      for i in range(0,3):
-        K = K + Diff(R, i, j, h, Par )*C
-    return K`
+  `def K(R, Par):`
+  
+    `K = 0`
+    
+    `for j in range(0,A):`
+    
+      `for i in range(0,3):`
+      
+        `K = K + Diff(R, i, j, h, Par )*C`
+        
+    `return K`
 
 
 
