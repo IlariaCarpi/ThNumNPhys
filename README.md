@@ -278,3 +278,9 @@ The plot is saved as an image file named `VMC4He.png` using the `save_fig` funct
 4. **Create and print a DataFrame summary**
 
 A Pandas DataFrame is created from the lists of γ, a, and β values, energies, and variances, and printed as a tabular summary of the results
+
+
+
+### Results 
+
+edrtfhui
