@@ -283,4 +283,15 @@ A Pandas DataFrame is created from the lists of γ, a, and β values, energies, 
 
 ### Results 
 
-edrtfhui
+## Trial 1
+
+The first trial is run with parameters `step = 0.55, step1 = 1/100, step2 = 1/20, step3 = 1/10, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                                                                 | γ | a | β |
+|--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
+| 700                  | -19.20 +- 0.72                    | 0.10851 | -0.5809 | 0.93639 |
+
