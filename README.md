@@ -115,7 +115,21 @@ A Pandas DataFrame is created from the lists of α values, energies, and varianc
 
 ### Results 
 
-edrtfhui
+
+## Trial 1
+
+The first trial is run with parameters `step = 1, step1 = 0.3, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                      | α |
+|--------------------------|------------------------------|----------|
+| 700                  | -19.20 ± 0.72                    | 0.10851 |
+| 700                  | -19.20 ± 0.72                    | 0.10851 |
+
+
 
 
 
@@ -293,5 +307,67 @@ The results for different values of `NP` are:
 
 | NP                   | Energy minimum                                                                 | γ | a | β |
 |--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
-| 700                  | -19.20 +- 0.72                    | 0.10851 | -0.5809 | 0.93639 |
+| 300                  | 69.05 ± 8.82                    | 0.18983 | -0.2305 | 0.63984 |
+| 500                  | 29.75 ± 5.91                    | 0.14465 | -0.2188 | 0.56932 |
+| 600                  | -13.03 ± 1.54                    | 0.11496 | -0.4627 | 0.81118 |
+| 700                  | -19.20 ± 0.72                    | 0.10851 | -0.5809 | 0.93639 |
+| 850                  | -19.20 ± 0.72                    | 0.10851 | -0.5809 | 0.93639 |
+| 1000                  | -19.20 ± 0.72                    | 0.10851 | -0.5809 | 0.93639 |
+
+Further increasing the number of steps for the parameters, the result of the energy minimum does not get any more precise.
+
+
+## Trial 2
+
+In the second trial, we try to increase the steps for parameters: `step = 0.55, step1 = 5/100, step2 = 25/100, step3 = 50/100, np.random.seed(12231)` The following Metropolis-like question for the evaluation of parameter steps: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                                                                 | γ | a | β |
+|--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
+| 70                  |  -19.06 ± ???                    | 0.13809 | -0.7234 | 1.08506 |
+| 120                  |  -25.31 ± 0.18                    | 0.08867 | -0.7661 | 1.63420 |
+| 130                  |  -25.31 ± 0.18                    | 0.08867 | -0.7661 | 1.63420 |
+| 200                  |  -514 ± 172                    | -0.10311 | -1.1384 | 1.96110 |
+| 700                  |  -11320 ± 6389                    | -0.57734 | -2.0951 | 8.76799 |
+
+
+Goal: parameters in Guardiola reference: 
+gamma = 0.08597 
+a = -0.7191 
+beta = 2.13796
+
+minimum values:  130
+Gamma =  0.08398009713146329 
+a =  -0.7345182193190508 
+beta =  2.1255306777433596 
+Energy =  -25.787989417132657 
+and variance:  0.3165305988890352
+
+
+minimum values: 125
+Gamma =  0.08866744625926991 
+a =  -0.7661242264809626 
+beta =  1.6341978543267548 
+Energy =  -25.31496928768775 
+and variance:  0.1819681735396692
+
+
+
+
+
+
+## Trial 3
+
+In the third trial, we try to increase the steps for parameters: `step = 0.55, step1 = 2/100, step2 = 10/100, step3 = 20/100, np.random.seed(12231)` The following Metropolis-like question for the evaluation of parameter steps: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                                                                 | γ | a | β |
+|--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
+| 700                  |   ±                     |  |  |  |
 
