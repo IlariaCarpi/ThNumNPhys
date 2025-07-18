@@ -17,7 +17,7 @@ The references for this project are:
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 1D Harmonic Oscillator: Project Structure
+# 1D Harmonic Oscillator: Project Structure
 
 ### Libraries
 
@@ -410,3 +410,16 @@ beta =  0.9952483719213135
 Energy =  84.03608677114757 
 and variance:  11.056728696492776
 
+minimum values:  700
+Gamma =  0.1880303641641673 
+a =  -0.4304069169758967 
+beta =  0.6606961875490726 
+Energy =  27.97193211283009 
+and variance:  2.9489907003463425
+
+minimum values: 1200
+Gamma =  0.18100164294992022 
+a =  -0.42757275410964823 
+beta =  0.8882822240888052 
+Energy =  22.9524722553115 
+and variance:  3.996235597706974
