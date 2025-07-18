@@ -390,3 +390,23 @@ and variance:  0.052304268304598896
 
 
 
+
+## Trial 4
+
+In the fourth trial, we try with parameter steps smaller than trial 1: `step = 0.55, step1 = 5/1000, step2 = 25/1000, step3 = 50/1000, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as other trials: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                                                                 | γ | a | β |
+|--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
+| 700                  |   ±                     |  |  |  |
+
+minimum values:  200
+Gamma =  0.19993814016431416 
+a =  -0.1988522280406088 
+beta =  0.9952483719213135 
+Energy =  84.03608677114757 
+and variance:  11.056728696492776
+
