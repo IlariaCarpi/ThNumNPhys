@@ -19,7 +19,7 @@ The references for this project are:
 
 # 1D Harmonic Oscillator: Project Structure
 
-### Libraries
+## Libraries
 
 This Python code implements the following libraries: 
 
@@ -33,12 +33,12 @@ This Python code implements the following libraries:
 | `pandas`                 | Organization of output in efficient and readable data structures   |
 
 
-### Files Initialization
+## Files Initialization
 
 This section initializes the folders and file paths used to store output data and generated figures. Using the os library, it creates a main directory (HOResults) with two subdirectories: one for plots (Figures) and one for saved data (Data). 
 
 
-### Variables Initialization
+## Variables Initialization
 
 In this section, we initialize the variables and arrays that will be used throughout the code. We also set the final goal for the parameter to be α = 1. 
 
@@ -54,7 +54,7 @@ In this section, we initialize the variables and arrays that will be used throug
 - Set seed for random numbers, to make the code reproducible: np.random.seed(12231) 
 
 
-### Important Functions
+## Important Functions
 
 We define some functions that will be used throughout the code: 
 
@@ -71,7 +71,7 @@ We define some functions that will be used throughout the code:
      `return 0.5*x*x*(1-alpha**4) + 0.5*alpha*alpha`
 
 
-### Main Steps
+## Main Steps
 
 1. **Initialize the system and generate initial configuration:**
    
@@ -92,7 +92,7 @@ We define some functions that will be used throughout the code:
    3.4 Use a Metropolis-like criterion for accepting α: the new parameter is accepted if it lowers the energy or with a probability based on the energy ratio
 
 
-### Show Results
+## Show Results
 
 1. **Print final results**
 
@@ -115,7 +115,7 @@ A Pandas DataFrame is created from the lists of α values, energies, and varianc
 
 
 
-### Results 
+## Results 
 
 
 ## Trial 1
@@ -139,9 +139,9 @@ The results for different values of `NP` are:
 
 
 
-## Helium 4: Project Structure
+# Helium 4: Project Structure
 
-### Libraries
+## Libraries
 
 This Python code implements the following libraries: 
 
@@ -154,11 +154,11 @@ This Python code implements the following libraries:
 | `pandas`                 | Organization of output in efficient and readable data structures   |
 | `numba`                 | Acceleration of numerical Python code by translating functions to optimized machine code at runtime   |
 
-### Files Initialization
+## Files Initialization
 
 This section initializes the folders and file paths used to store output data and generated figures. Using the os library, it creates a main directory (4HEResults) with two subdirectories: one for plots (Figures) and one for saved data (Data). 
 
-### Variables Initialization
+## Variables Initialization
 
 In this section, we initialize the variables and arrays that will be used throughout the code. We also set the final goal for the parameters as in reference [1]. 
 
@@ -181,7 +181,7 @@ In this section, we initialize the variables and arrays that will be used throug
 - Set seed for random numbers, to make the code reproducible: np.random.seed(12231)
 
 
-### Important Functions
+## Important Functions
 
 We define some functions that will be used throughout the code: 
 
@@ -249,7 +249,7 @@ We define some functions that will be used throughout the code:
 
 
 
-### Main Steps
+## Main Steps
 
 1. **Initialize the system and generate initial configuration:**
    
@@ -275,7 +275,7 @@ We define some functions that will be used throughout the code:
    4.4 Use a Metropolis-like criterion for accepting `Par_new`: the new parameters are accepted if it lowers the energy or with a probability based on the energy ratio
 
 
-### Show Results
+## Show Results
 
 1. **Print final results**
 
@@ -297,9 +297,9 @@ A Pandas DataFrame is created from the lists of γ, a, and β values, energies, 
 
 
 
-### Results 
+## Results 
 
-## Trial 1
+# Trial 1
 
 The first trial is run with parameters `step = 0.55, step1 = 1/100, step2 = 1/20, step3 = 1/10, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
 
@@ -319,7 +319,7 @@ The results for different values of `NP` are:
 Further increasing the number of steps for the parameters, the result of the energy minimum does not get any more precise.
 
 
-## Trial 2
+# Trial 2
 
 In the second trial, we try to increase the steps for parameters: `step = 0.55, step1 = 5/100, step2 = 25/100, step3 = 50/100, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as trial 1: 
 
@@ -340,7 +340,7 @@ We obtain the best values for NP = 130 and NP = 135. Increasing NP, the result b
 
 
 
-## Trial 3
+# Trial 3
 
 In the third trial, we try with values of the parameter steps that are intermediate between trial 1 and trial 2: `step = 0.55, step1 = 2/100, step2 = 10/100, step3 = 20/100, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as other trials: 
 
@@ -391,7 +391,7 @@ and variance:  0.052304268304598896
 
 
 
-## Trial 4
+# Trial 4
 
 In the fourth trial, we try with parameter steps smaller than trial 1: `step = 0.55, step1 = 5/1000, step2 = 25/1000, step3 = 50/1000, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as other trials: 
 
