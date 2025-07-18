@@ -10,7 +10,9 @@ The references for this project are:
 
 [2] R. F. Bishop, E. Buendia, M. F. Flynn and R. Guardiola, "Diffusion Monte Carlo Determination of the Binding Energy of the 4He Nucleus for Model Wigner Potentials", 1992, DOI: 10.1088/0954-3899/18/2/002
 
-[3]  A. Gezerlis, "Numerical Methods in Physics with Python", ch. 7, 2020, DOI: 10.1017/9781108772310
+[3] I. R. Afnan, Y. C. Tang, "Investigation of Nuclear Three- and Four-Body Systems with Soft-Core Nucleon-Nucleon Potentials", 1968, DOI: 10.1103/PhysRev.175.1337
+
+[4]  A. Gezerlis, "Numerical Methods in Physics with Python", ch. 7, 2020, DOI: 10.1017/9781108772310
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -319,7 +321,7 @@ Further increasing the number of steps for the parameters, the result of the ene
 
 ## Trial 2
 
-In the second trial, we try to increase the steps for parameters: `step = 0.55, step1 = 5/100, step2 = 25/100, step3 = 50/100, np.random.seed(12231)` The following Metropolis-like question for the evaluation of parameter steps: 
+In the second trial, we try to increase the steps for parameters: `step = 0.55, step1 = 5/100, step2 = 25/100, step3 = 50/100, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as trial 1: 
 
 `if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
 
@@ -328,60 +330,19 @@ The results for different values of `NP` are:
 | NP                   | Energy minimum                                                                 | γ | a | β |
 |--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
 | 120                  |  -25.31 ± 0.18                    | 0.08867 | -0.7661 | 1.63420 |
-| 120                  |  -25.31 ± 0.18                    | 0.08867 | -0.7661 | 1.63420 |
-| 120                  |  -25.31 ± 0.18                    | 0.08867 | -0.7661 | 1.63420 |
-| 130                  |  -25.31 ± 0.18                    | 0.08867 | -0.7661 | 1.63420 |
+| 130                  |  -25.79 ± 0.31                    | 0.08398 | -0.7345 | 2.12553 |
+| 135                  |  -25.79 ± 0.31                    | 0.08398 | -0.7345 | 2.12553 |
+| 140                  |  -207.28 ± 58.54                    | -0.05551 | -0.9533 | 1.75263 |
 | 200                  |  -514 ± 172                    | -0.10311 | -1.1384 | 1.96110 |
 | 700                  |  -11320 ± 6389                    | -0.57734 | -2.0951 | 8.76799 |
 
-
-Goal: parameters in Guardiola reference: 
-gamma = 0.08597 
-a = -0.7191 
-beta = 2.13796
-
-
-minimum values: 140
-Gamma =  -0.055507153242667265 
-a =  -0.9532662868889905 
-beta =  1.752632688741281 
-Energy =  -207.27506634364659 
-and variance:  58.54091342423168
-
-minimum values:  135
-Gamma =  0.08398009713146329 
-a =  -0.7345182193190508 
-beta =  2.1255306777433596 
-Energy =  -25.787989417132657 
-and variance:  0.3165305988890352
-
-minimum values:  130
-Gamma =  0.08398009713146329 
-a =  -0.7345182193190508 
-beta =  2.1255306777433596 
-Energy =  -25.787989417132657 
-and variance:  0.3165305988890352
-
-minimum values: 125
-Gamma =  0.08866744625926991 
-a =  -0.7661242264809626 
-beta =  1.6341978543267548 
-Energy =  -25.31496928768775 
-and variance:  0.1819681735396692
-
-minimum values: 127
-Gamma =  0.08866744625926991 
-a =  -0.7661242264809626 
-beta =  1.6341978543267548 
-Energy =  -25.31496928768775 
-and variance:  0.1819681735396692
-
+We obtain the best values for NP = 130 and NP = 135. Increasing NP, the result becomes less precise, possibly indicating the limits, in terms of precision, of the trial wave function choice; in fact, because it's not the exact wave function, the energy could have a non-physical minimum for some parameter values. 
 
 
 
 ## Trial 3
 
-In the third trial, we try to increase the steps for parameters: `step = 0.55, step1 = 2/100, step2 = 10/100, step3 = 20/100, np.random.seed(12231)` The following Metropolis-like question for the evaluation of parameter steps: 
+In the third trial, we try with values of the parameter steps that are intermediate between trial 1 and trial 2: `step = 0.55, step1 = 2/100, step2 = 10/100, step3 = 20/100, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as other trials: 
 
 `if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
 
@@ -390,4 +351,42 @@ The results for different values of `NP` are:
 | NP                   | Energy minimum                                                                 | γ | a | β |
 |--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
 | 700                  |   ±                     |  |  |  |
+
+
+
+minimum values:  200
+Gamma =  0.20414065229782213 
+a =  -0.8409620644102829 
+beta =  0.7599942804729686 
+Energy =  -4.926961613556867 
+
+minimum values:  400
+Gamma =  0.1493874415051921 
+a =  -0.7020625100758953 
+beta =  0.8060809173634923 
+Energy =  -14.878758119045703 
+and variance:  nan
+
+minimum values:  800
+Gamma =  0.09695699766700971 
+a =  -0.7003715423719226 
+beta =  1.2860186068545705 
+Energy =  -23.863781745665342 
+and variance:  0.052304268304598896
+
+minimum values:  1000
+Gamma =  0.09695699766700971 
+a =  -0.7003715423719226 
+beta =  1.2860186068545705 
+Energy =  -23.863781745665342 
+and variance:  0.052304268304598896
+
+minimum values:  1500
+Gamma =  0.09695699766700971 
+a =  -0.7003715423719226 
+beta =  1.2860186068545705 
+Energy =  -23.863781745665342 
+and variance:  0.052304268304598896
+
+
 
