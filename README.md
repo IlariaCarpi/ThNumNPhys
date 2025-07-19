@@ -30,8 +30,6 @@ This Python code implements the following libraries:
 | `math`                   | Implementation of basic mathematical functions |
 | `matplotlib`             | Plotting results                 |
 | `os`                     | Provides functions for interacting with the operating system, such as file and directory management         |
-| `pandas`                 | Organization of output in efficient and readable data structures   |
-
 
 ## Files Initialization
 
@@ -98,20 +96,21 @@ We define some functions that will be used throughout the code:
 
 The code prints the last sampled values of the variational parameter α, the corresponding energy, and variance. It also prints the minimum energy found during the optimization along with the corresponding α and variance
 
-2. **Plot energy and variance vs. α**
+2. **Print output file**
+
+The data is printed on the file "DataHO.dat"
+
+3. **Plot energy and variance vs. α**
 
 Two subplots are created:
 * The first shows the energy as a function of α
 * The second shows the variance squared as a function of α
 These plots help visualize the convergence and behavior of the variational optimization
 
-3. **Save the figure**
+4. **Save the figure**
 
 The plot is saved as an image file named `VMCHarmonic.png` using the `save_fig` function
 
-4. **Create and print a DataFrame summary**
-
-A Pandas DataFrame is created from the lists of α values, energies, and variances, and printed as a tabular summary of the results
 
 
 
@@ -128,38 +127,13 @@ The results for different values of `NP` are:
 
 | NP                   | Energy minimum                      | α |
 |--------------------------|------------------------------|----------|
-| 700                  | -19.20 ± 0.72                    | 0.10851 |
-| 700                  | -19.20 ± 0.72                    | 0.10851 |
+| 300                  | 0.49942 ± 0.00098                    | 0.978 |
+| 500                  | 0.49942 ± 0.00098                    | 0.978 |
+| 1000                  | 0.49942 ± 0.00096                    | 1.0027 |
+| 2000                  | 0.49942 ± 0.00091                    | 1.0948 |
+| 5000                  | 0.49942 ± 0.00093                    | 0.9467 |
 
-300
-ENERGY MINIMUM:  0.4994253549752404 
-ALPHA IN MINIMUM:  0.9784393138331804 
-VARIANCE OF MINIMUM:  0.0009813761967710714
-
-500
-ENERGY MINIMUM:  0.4994253549752404 
-ALPHA IN MINIMUM:  0.9784393138331804 
-VARIANCE OF MINIMUM:  0.0009813761967710714
-
-1000
-ENERGY MINIMUM:  0.4994239435353529 
-ALPHA IN MINIMUM:  1.0026920451252308 
-VARIANCE OF MINIMUM:  0.0009687262966461032
-
-2000
-ENERGY MINIMUM:  0.49942330334221346 
-ALPHA IN MINIMUM:  1.094848419160279 
-VARIANCE OF MINIMUM:  0.0009132518414844824
-
-5000
-ENERGY MINIMUM:  0.4994224886657942 
-ALPHA IN MINIMUM:  0.9467074437614893 
-VARIANCE OF MINIMUM:  0.0009397005414925872
-
-
-
-
-
+--> I DATI VANNO TUTTI RIPRESI PERCHè HO FATTO CASINO
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -177,7 +151,6 @@ This Python code implements the following libraries:
 | `numpy`                  | Numerical computing with support for multidimensional arrays and mathematical functions                   |
 | `matplotlib`             | Plotting results                 |
 | `os`                     | Provides functions for interacting with the operating system, such as file and directory management         |
-| `pandas`                 | Organization of output in efficient and readable data structures   |
 | `numba`                 | Acceleration of numerical Python code by translating functions to optimized machine code at runtime   |
 
 ## Files Initialization
@@ -307,19 +280,19 @@ We define some functions that will be used throughout the code:
 
 The code prints the last sampled values of the variational parameters, and the corresponding energy and variance. It also prints the minimum energy `minimumE` found during the optimization along with the corresponding γ (`minimumGamma`), a (`minimumA`) and β (`minimumBeta`), and variance `sqrt(minimumVar2)`
 
+2. **Print output file**
 
-2. **Visualize the energy landscape:**
+The data is printed on the file "DataHO.dat"
+
+3. **Visualize the energy landscape:**
 
 A 3D scatter plot is generated showing how the energy depends on the parameters γ, a, and β. Each point represents a tested parameter set, and its color indicates the corresponding energy; this helps identify the region where the energy minimum occurs.
 
 
-3. **Save the figure**
+4. **Save the figure**
 
 The plot is saved as an image file named `VMC4He.png` using the `save_fig` function
 
-4. **Create and print a DataFrame summary**
-
-A Pandas DataFrame is created from the lists of γ, a, and β values, energies, and variances, and printed as a tabular summary of the results
 
 
 
@@ -362,7 +335,7 @@ The results for different values of `NP` are:
 | 200                  |  -514 ± 172                    | -0.10311 | -1.1384 | 1.96110 |
 | 700                  |  -11320 ± 6389                    | -0.57734 | -2.0951 | 8.76799 |
 
-We obtain the best values for NP = 130 and NP = 135. Increasing NP, the result becomes less precise, possibly indicating the limits, in terms of precision, of the trial wave function choice; in fact, because it's not the exact wave function, the energy could have a non-physical minimum for some parameter values. 
+**We obtain parameters near the best values for NP = 130 and NP = 135**. Increasing NP, the result becomes less precise, possibly indicating the limits, in terms of precision, of the trial wave function choice; in fact, because it's not the exact wave function, the energy could have a non-physical minimum for some parameter values. 
 
 
 
@@ -376,45 +349,13 @@ The results for different values of `NP` are:
 
 | NP                   | Energy minimum                                                                 | γ | a | β |
 |--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
-| 700                  |   ±                     |  |  |  |
+| 200                  |  -4.93 ± ??                    | 0.20414 | -0.8409 | 0.75999 |
+| 400                  |  -14.88 ± ??                    | 0.14939 | -0.7021 | 0.80608 |
+| 800                  |  -23.86 ± 0.05                    | 0.09696 | -0.7004 | 1.28602 |
+| 1000                  |  -23.86 ± 0.05                    | 0.09696 | -0.7004 | 1.28602 |
+| 1500                  |  -23.86 ± 0.05                    | 0.09696 | -0.7004 | 1.28602 |
 
-
-
-minimum values:  200
-Gamma =  0.20414065229782213 
-a =  -0.8409620644102829 
-beta =  0.7599942804729686 
-Energy =  -4.926961613556867 
-
-minimum values:  400
-Gamma =  0.1493874415051921 
-a =  -0.7020625100758953 
-beta =  0.8060809173634923 
-Energy =  -14.878758119045703 
-and variance:  nan
-
-minimum values:  800
-Gamma =  0.09695699766700971 
-a =  -0.7003715423719226 
-beta =  1.2860186068545705 
-Energy =  -23.863781745665342 
-and variance:  0.052304268304598896
-
-minimum values:  1000
-Gamma =  0.09695699766700971 
-a =  -0.7003715423719226 
-beta =  1.2860186068545705 
-Energy =  -23.863781745665342 
-and variance:  0.052304268304598896
-
-minimum values:  1500
-Gamma =  0.09695699766700971 
-a =  -0.7003715423719226 
-beta =  1.2860186068545705 
-Energy =  -23.863781745665342 
-and variance:  0.052304268304598896
-
-
+We observe that the results stabilize after some value of NP, but the parameters do not correspond to the best fit in the reference. 
 
 
 # Trial 4
@@ -427,32 +368,16 @@ The results for different values of `NP` are:
 
 | NP                   | Energy minimum                                                                 | γ | a | β |
 |--------------------------|-------------------------------------------------------------------------|----------|----------|---------|
-| 700                  |   ±                     |  |  |  |
+| 200                  |  84.04 ± 11.04                    | 0.19994 | -0.1989 | 0.99525 |
+| 700                  |  27.97 ± 2.95                    | 0.18803 | -0.4304 | 0.66070 |
+| 1200                  |  22.95 ± 3.99                    | 0.18100 | -0.4276 | 0.88828 |
+| 3500                  |  -15.66 ± 1.22                    | 0.12339 | -0.5168 | 1.12476 |
 
-minimum values:  200
-Gamma =  0.19993814016431416 
-a =  -0.1988522280406088 
-beta =  0.9952483719213135 
-Energy =  84.03608677114757 
-and variance:  11.056728696492776
+We note that, as the number NP increases, the accuracy of the result improves; however, a significant rise in computational time potentially limits the method's practical applicability.
 
-minimum values:  700
-Gamma =  0.1880303641641673 
-a =  -0.4304069169758967 
-beta =  0.6606961875490726 
-Energy =  27.97193211283009 
-and variance:  2.9489907003463425
 
-minimum values: 1200
-Gamma =  0.18100164294992022 
-a =  -0.42757275410964823 
-beta =  0.8882822240888052 
-Energy =  22.9524722553115 
-and variance:  3.996235597706974
+We report here the graph for the best obtained result, which is NP = 135 from trial 2: 
 
-minimum values:  3500
-Gamma =  0.1233900427892731 
-a =  -0.5168282174170512 
-beta =  1.1247581408066687 
-Energy =  -15.658014375471557 
-and variance:  1.220906672727103
+<img width="720" height="720" alt="2 VMC4HE NP = 135" src="https://github.com/user-attachments/assets/fba28917-6e84-49ae-9190-71fb233ffd6b" />
+
+Graphs of other trials are available in the folder "Graphs" in this repository. For a list of data, it is necessary to run the file "HO.py" and search in the local memory for the folder "HOResults/Data", created by the code. 
