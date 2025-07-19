@@ -298,7 +298,7 @@ The plot is saved as an image file named `VMC4He.png` using the `save_fig` funct
 
 ## Results 
 
-# Trial 1
+### Trial 1
 
 The first trial is run with parameters `step = 0.55, step1 = 1/100, step2 = 1/20, step3 = 1/10, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
 
@@ -318,7 +318,7 @@ The results for different values of `NP` are:
 Further increasing the number of steps for the parameters, the result of the energy minimum does not get any more precise.
 
 
-# Trial 2
+### Trial 2
 
 In the second trial, we try to increase the steps for parameters: `step = 0.55, step1 = 5/100, step2 = 25/100, step3 = 50/100, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as trial 1: 
 
@@ -339,7 +339,7 @@ The results for different values of `NP` are:
 
 
 
-# Trial 3
+### Trial 3
 
 In the third trial, we try with values of the parameter steps that are intermediate between trial 1 and trial 2: `step = 0.55, step1 = 2/100, step2 = 10/100, step3 = 20/100, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as other trials: 
 
@@ -358,7 +358,7 @@ The results for different values of `NP` are:
 We observe that the results stabilize after some value of NP, but the parameters do not correspond to the best fit in the reference. 
 
 
-# Trial 4
+### Trial 4
 
 In the fourth trial, we try with parameter steps smaller than trial 1: `step = 0.55, step1 = 5/1000, step2 = 25/1000, step3 = 50/1000, np.random.seed(12231)`. The Metropolis-like question for the evaluation of parameter steps is the same as other trials: 
 
@@ -375,6 +375,7 @@ The results for different values of `NP` are:
 
 We note that, as the number NP increases, the accuracy of the result improves; however, a significant rise in computational time potentially limits the method's practical applicability.
 
+### Conclusions
 
 We report here the graph for the best obtained result, which is NP = 135 from trial 2: 
 
