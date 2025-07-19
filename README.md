@@ -117,7 +117,7 @@ The plot is saved as an image file named `VMCHarmonic.png` using the `save_fig` 
 ## Results 
 
 
-## Trial 1
+### Trial 1
 
 The first trial is run with parameters `step = 1, step1 = 0.3, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
 
@@ -381,4 +381,4 @@ We report here the graph for the best obtained result, which is NP = 135 from tr
 
 <img width="720" height="720" alt="2 VMC4HE NP = 135" src="https://github.com/user-attachments/assets/fba28917-6e84-49ae-9190-71fb233ffd6b" />
 
-Graphs of other trials are available in the folder "Graphs" in this repository. For a list of data, it is necessary to run the file "HO.py" and search in the local memory for the folder "HOResults/Data", created by the code. 
+Graphs of other trials are available in the folder "Graphs" in this repository. For a list of data, it is necessary to run the file "he4.py" and search in the local memory for the folder "HE4Results/Data", created by the code. 
