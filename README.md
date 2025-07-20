@@ -133,7 +133,38 @@ The results for different values of `NP` are:
 | 2000                  | 0.49942 ± 0.00091                    | 1.0948 |
 | 5000                  | 0.49942 ± 0.00093                    | 0.9467 |
 
---> I DATI VANNO TUTTI RIPRESI PERCHè HO FATTO CASINO
+
+### Trial 2
+
+The second trial is run with parameters `step = 1, step1 = 0.5, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                      | α |
+|--------------------------|------------------------------|----------|
+| 200                  | 0.49908 ± 0.00064                    | 1.029 |
+| 700                  | 0.49908 ± 0.00064                    | 1.082|
+| 1500                  | 0.49908 ± 0.00064                    | 1.082 |
+| 3000                  | 0.49908 ± 0.00064                    | 1.082 |
+
+
+### Trial 2
+
+The second trial is run with parameters `step = 1, step1 = 0.8, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
+
+`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
+
+The results for different values of `NP` are: 
+
+| NP                   | Energy minimum                      | α |
+|--------------------------|------------------------------|----------|
+| 200                  | 0.49908 ± 0.00064                    | 0.85414 |
+| 800                  | 0.49908 ± 0.00064                    | 0.79806|
+| 1500                  | 0.49908 ± 0.00064                    | 0.92016 |
+| 3000                  | 0.49908 ± 0.00064                    | 0.92016 |
+| 10000                  | 0.49908 ± 0.00064                    | 0.92016 |
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
