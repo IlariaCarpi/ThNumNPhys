@@ -36,15 +36,15 @@ outfile = open(data_path("DataHO.dat"),'w')
 # INITIALIZE VARIABLES ---------------------------------------------------------------------------------------
 
 NAcc = 0 # accepted moves
-NP = 1000  # number of moves to find parameters
+NP = 200  # number of moves to find parameters
 NX = 10000  # number of particles' moves
 step = 1.0  # algorithm step for random walk of particles
-step1 = 0.3 # step for parameter random walk
+step1 = 0.8 # step for parameter random walk
 
 list_x = [] # storing positions
 list_alpha = [] # storing alpha values
 list_E = [] # storing accepted energies
-list_EvalE = [] # storing energies
+list_Eall = [] # storing energies
 list_variance2 = [] # storing square variances
 
 
@@ -128,9 +128,8 @@ for l in range(0,NP):
     Par = Par_new  
     list_alpha.append(Par)
     list_E.append(E_mean)
-    list_EvalE.append(E_mean)
+    list_Eall.append(E_mean)
     list_variance2.append(Var2)
-    print("\nFirst: ", "\n", E_mean, "\nWith par:","\nAlpha = ",list_alpha[l], "\nAnd variance:",Var2)
     minimumE = E_mean
     minimumAlpha = Par
     minimumVariance2 = Var2
@@ -138,7 +137,7 @@ for l in range(0,NP):
   else:   
     print("l = ", l) 
     
-    if (list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand()):     
+    if (list_Eall[l-1]>E_mean or list_Eall[l-1]/E_mean>np.random.rand()):     
     
       if (minimumE>E_mean):
         minimumE = E_mean
@@ -151,23 +150,22 @@ for l in range(0,NP):
 
       Par = Par_new
       list_alpha.append(Par)
-      list_EvalE.append(E_mean)
+      list_Eall.append(E_mean)
       list_E.append(E_mean)
       list_variance2.append(Var2)
-      print("Current minimum energy: ",minimumE)
 
     else:
       Par = Par
-      list_EvalE.append(list_EvalE[l-1])
+      list_Eall.append(list_Eall[l-1])
       
       
-      
-      
+
+
       
 # RESULTS OUTPUT ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------      
       
-print("last value:", "\nAlpha = ",list_alpha[-1], "\nEnergy = ", list_E[-1], "\nVariance: ",sqrt(abs(list_variance2[-1])))
-print("ENERGY MINIMUM: ",minimumE, "\nALPHA IN MINIMUM: ",minimumAlpha, "\nVARIANCE OF MINIMUM: ",sqrt(abs(minimumVariance2)))
+print("\n\n\nlast value:", "\nAlpha = ",list_alpha[-1], "\nEnergy = ", list_E[-1], "\nVariance: ",sqrt(abs(list_variance2[-1])))
+print("\n\nENERGY MINIMUM: ",minimumE, "\nALPHA IN MINIMUM: ",minimumAlpha, "\nVARIANCE OF MINIMUM: ",sqrt(abs(minimumVariance2)))
 
 
 outfile.write("       alpha                    energy                    variance\n")

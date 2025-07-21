@@ -95,14 +95,14 @@ h = 0.00001  # differential increment
 step = 0.55  # algorithm step for random walk of particles
 hbar = 6.582119*10**(-22)
 C = (197.3269804)**2/2/939.56542052 # constant in front of the kinetic term, the first term is in Mev*fm
-step1 = 5/100 #1/100
-step2 = 25/100 #5/100
-step3 = 50/100 # 10/100
+step1 = 5/100 # algorithm step for random walk of gamma 
+step2 = 25/100 # algorithm step for random walk of a
+step3 = 50/100 # algorithm step for random walk of beta
 list_gamma = [] # storing gamma values
 list_a  = [] # storing a values
 list_beta = [] # storing beta values
 list_E = [] # storing accepted energies
-list_EvalE = [] # storing energies
+list_Eall = [] # storing energies
 list_variance2 = [] # store variances^2
 
 # Goal: parameters in Guardiola reference: 
@@ -205,19 +205,18 @@ for l in range(0,NP):
     list_a.append(Par[1])
     list_beta.append(Par[2])
     list_E.append(E_mean)
-    list_EvalE.append(E_mean)
+    list_Eall.append(E_mean)
     list_variance2.append(Var2)
     minimumE = E_mean
     minimumVar2 = Var2
     minimumGamma = Par[0]
     minimumA = Par[1]
     minimumBeta = Par[2]
-    print("\nFirst: ", "\n", E_mean, "\nWith pars:","\nGamma = ",list_gamma[l],"\na = ",list_a[l],"\nbeta = ",list_beta[l],"\nand variance^2: ",Var2)
   
   else:   
     print("l = ", l)
-    if (list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand()):
-    # if (list_EvalE[l-1]>E_mean):
+    if (list_Eall[l-1]>E_mean or list_Eall[l-1]/E_mean>np.random.rand()):
+    # if (list_Eall[l-1]>E_mean):
       if (minimumE>E_mean):
         minimumE = E_mean
         minimumVar2 = Var2
@@ -234,20 +233,19 @@ for l in range(0,NP):
       list_gamma.append(Par[0])
       list_a.append(Par[1])
       list_beta.append(Par[2])
-      list_EvalE.append(E_mean)
+      list_Eall.append(E_mean)
       list_E.append(E_mean)
       list_variance2.append(Var2)
-      print("ACCEPTED: \nE_mean =", E_mean, "\nWith parameters:","\nGamma = ",list_gamma[-1],"\na = ",list_a[-1],"\nbeta = ",list_beta[-1],"\nand variance^2: ",Var2)
     else:
       Par = Par.copy()
-      list_EvalE.append(list_EvalE[l-1])
+      list_Eall.append(list_Eall[l-1])
       
       
 
 # RESULTS OUTPUT ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------      
       
-print("last values:", "\nGamma = ",list_gamma[-1],"\na = ",list_a[-1],"\nbeta = ",list_beta[-1], "\nEnergy = ", list_E[-1],"\nand variance: ",sqrt(abs(list_variance2[-1])))
-print("minimum values:", "\nGamma = ",minimumGamma,"\na = ",minimumA,"\nbeta = ",minimumBeta, "\nEnergy = ", minimumE,"\nand variance: ",sqrt(abs(minimumVar2)))
+print("\n\n\nlast values:", "\nGamma = ",list_gamma[-1],"\na = ",list_a[-1],"\nbeta = ",list_beta[-1], "\nEnergy = ", list_E[-1],"\nand variance: ",sqrt(abs(list_variance2[-1])))
+print("\n\nminimum values:", "\nGamma = ",minimumGamma,"\na = ",minimumA,"\nbeta = ",minimumBeta, "\nEnergy = ", minimumE,"\nand variance: ",sqrt(abs(minimumVar2)))
 
 outfile.write("       gamma                         a                        beta                        energy                   variance\n")
 for i in range(len(list_E)):
