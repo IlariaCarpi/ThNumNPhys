@@ -160,11 +160,13 @@ The third trial is run with parameters `step = 1, step1 = 0.8, np.random.seed(12
 
 We observe that the parameter α in the minimum fluctuates more than in trial 1 and 2, so the results are less precise. This is also visible in the graphs. 
 
+### Conclusions
+
 We report the graph for the case NP = 1000 in trial 1: 
 
 <img width="432" height="288" alt="1 VMCHarmonic NP = 1000" src="https://github.com/user-attachments/assets/8c7f9305-337d-4569-9c91-fef0c2bb8a9d" />
 
-All the graphs related to each run are collected in the folder "HO Graphs" in this repository. For the complete data related to each case, the code in the file "ho.py" has to be run with the appropriate parameters and will generate a file containing the data. 
+All the graphs related to each run are collected in the folder "HO Graphs" in this repository. For the complete data related to each case, the code in the file "ho.py" has to be run with the appropriate parameters and will generate a file containing the data in the folder "HOResults/Data". 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
