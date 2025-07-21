@@ -119,11 +119,7 @@ The plot is saved as an image file named `VMCHarmonic.png` using the `save_fig` 
 
 ### Trial 1
 
-The first trial is run with parameters `step = 1, step1 = 0.3, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
-
-`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
-
-The results for different values of `NP` are: 
+The first trial is run with parameters `step = 1, step1 = 0.3, np.random.seed(12231)`. The results for different values of `NP` are: 
 
 | NP                   | Energy minimum                      | α |
 |--------------------------|------------------------------|----------|
@@ -133,14 +129,12 @@ The results for different values of `NP` are:
 | 2000                  | 0.49942 ± 0.00091                    | 1.0948 |
 | 5000                  | 0.49942 ± 0.00093                    | 0.9467 |
 
+The expected result is E = 0.5 for α = 1. We observe that the results are precise for every used NP value. 
+
 
 ### Trial 2
 
-The second trial is run with parameters `step = 1, step1 = 0.5, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
-
-`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
-
-The results for different values of `NP` are: 
+The second trial is run with parameters `step = 1, step1 = 0.5, np.random.seed(12231)`. The results for different values of `NP` are: 
 
 | NP                   | Energy minimum                      | α |
 |--------------------------|------------------------------|----------|
@@ -149,14 +143,12 @@ The results for different values of `NP` are:
 | 1500                  | 0.49908 ± 0.00064                    | 1.082 |
 | 3000                  | 0.49908 ± 0.00064                    | 1.082 |
 
+The sampling of the parameter space is slightly less precise than trial 1, this is visible from the graphs. 
 
-### Trial 2
 
-The second trial is run with parameters `step = 1, step1 = 0.8, np.random.seed(12231)`, and the following Metropolis-like question for the evaluation of parameter steps: 
+### Trial 3
 
-`if(list_EvalE[l-1]>E_mean or list_EvalE[l-1]/E_mean>np.random.rand())`
-
-The results for different values of `NP` are: 
+The third trial is run with parameters `step = 1, step1 = 0.8, np.random.seed(12231)`. The results for different values of `NP` are: 
 
 | NP                   | Energy minimum                      | α |
 |--------------------------|------------------------------|----------|
@@ -165,6 +157,14 @@ The results for different values of `NP` are:
 | 1500                  | 0.49908 ± 0.00064                    | 0.92016 |
 | 3000                  | 0.49908 ± 0.00064                    | 0.92016 |
 | 10000                  | 0.49908 ± 0.00064                    | 0.92016 |
+
+We observe that the parameter α in the minimum fluctuates more than in trial 1 and 2, so the results are less precise. This is also visible in the graphs. 
+
+We report the graph for the case NP = 1000 in trial 1: 
+
+<img width="432" height="288" alt="1 VMCHarmonic NP = 1000" src="https://github.com/user-attachments/assets/8c7f9305-337d-4569-9c91-fef0c2bb8a9d" />
+
+All the graphs related to each run are collected in the folder "HO Graphs" in this repository. For the complete data related to each case, the code in the file "ho.py" has to be run with the appropriate parameters and will generate a file containing the data. 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -412,4 +412,4 @@ We report here the graph for the best obtained result, which is NP = 135 from tr
 
 <img width="720" height="720" alt="2 VMC4HE NP = 135" src="https://github.com/user-attachments/assets/fba28917-6e84-49ae-9190-71fb233ffd6b" />
 
-Graphs of other trials are available in the folder "Graphs" in this repository. For a list of data, it is necessary to run the file "he4.py" and search in the local memory for the folder "HE4Results/Data", created by the code. 
+Graphs of other trials are available in the folder "4HE Graphs" in this repository. For a list of data, it is necessary to run the file "he4.py" and search in the local memory for the folder "HE4Results/Data", created by the code. 
