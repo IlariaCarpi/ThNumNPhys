@@ -160,6 +160,19 @@ The third trial is run with parameters `step = 1, step1 = 0.8, np.random.seed(12
 
 We observe that the parameter α in the minimum fluctuates more than in trial 1 and 2, so the results are less precise. This is also visible in the graphs. 
 
+
+### Alternative form: adaptive VMC
+
+We add a modification of the algorithm in which, instead of fixing the value of the parameter step in the beginning, we adjust it along the VMC cycles according to the acceptance rate of the steps: 
+
+- in each cycle we make the following step for the parameter:
+    `Par_new = Par + (np.random.rand() - 0.5) * step_frac * abs(Par) if Par != 0 else 1e-2 * (np.random.rand() - 0.5)`
+- we progressively count the number of accepted parameters (accepted steps) and every `n_agg_par` number of cycles we verify the acceptance ratio `acc_ratio = N_accept_param / N_total_param`.
+  - if `acc_ratio < 0.5`, we reduce `step_frac` to reduce the parameter step
+  - if `acc_ratio > 0.8`, we increase `step_frac` to increase the parameter step
+
+We observe that, with this variant of the algoritmh, the parameter space is explored more thoroughly around the minimum. 
+
 ### Conclusions
 
 We report the graph for the case NP = 1000 in trial 1: 
@@ -407,6 +420,24 @@ The results for different values of `NP` are:
 | 3500                  |  -15.66 ± 1.22                    | 0.12339 | -0.5168 | 1.12476 |
 
 We note that, as the number NP increases, the accuracy of the result improves; however, a significant rise in computational time potentially limits the method's practical applicability.
+
+### Alternative form: adaptive VMC
+
+We add a modification of the algorithm in which, instead of fixing the values of the parameter steps in the beginning, we adjust them along the VMC cycles according to the acceptance rate of steps: 
+
+- in each cycle we make the following step for the parameter:
+  
+    `Par_new[0] = Par[0] + (np.random.rand() - 0.5) * step_frac * abs(Par[0]) if Par[0] != 0 else 1e-2 * (np.random.rand() - 0.5)`
+  
+     `Par_new[1] = Par[1] + (np.random.rand() - 0.5) * step_frac * abs(Par[1]) if Par[1] != 0 else 1e-2 * (np.random.rand() - 0.5)`
+  
+     `Par_new[2] = Par[2] + (np.random.rand() - 0.5) * step_frac * abs(Par[2]) if Par[2] != 0 else 1e-2 * (np.random.rand() - 0.5)`
+  
+- we progressively count the number of accepted parameters (accepted steps) and every `n_agg_par` number of cycles we verify the acceptance ratio `acc_ratio = N_accept_param / N_total_param`.
+  - if `acc_ratio < 0.5`, we reduce `step_frac` to reduce the parameter steps
+  - if `acc_ratio > 0.8`, we increase `step_frac` to increase the parameter steps
+
+We observe that, with this variant of the algoritmh, the parameter space is explored more thoroughly around the minimum. Furthermore, the number of initial parameters to set decreases by 2, since instead of 3 parameter steps now we have to only set the parameter `step_frac`. 
 
 ### Conclusions
 
